@@ -1,7 +1,10 @@
+import os
+os.system("pip install scikit-learn")
+import sklearn
+
 import streamlit as st
 import pickle
 import numpy as np
-import sklearn
 
 
 # Load the trained model and dataset
