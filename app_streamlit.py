@@ -10,67 +10,78 @@ import numpy as np
 pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
-
-import streamlit as st
-
 # Set page config
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
 # Background image URL from GitHub
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img2.jpg?raw=true"
 
-# Apply CSS for styling
+# Apply CSS for custom styling
 st.markdown(
     f"""
     <style>
         /* Background styling */
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: cover;
+            background-size: contain;
         }}
 
-        /* Center content */
-        .container {{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }}
-
-        /* Title Styling */
-        h1 {{
-            text-align: center;
-            font-size: 36px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 20px;
-        }}
-
-        /* Button Styling */
-        .stButton > button {{
-            width: 80%;
-            max-width: 300px;
-            font-size: 18px;
-            font-weight: bold;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 8px;
-            padding: 10px;
-        }}
-
-        /* Form elements spacing */
-        .stTextInput, .stSelectbox, .stNumberInput, .stSlider {{
-            width: 80%;
-            max-width: 400px;
+        /* Remove grid layout */
+        .block-container {{
+            padding: 2rem;
+            max-width: 800px;
             margin: auto;
+        }}
+
+        /* Input fields - Gray background */
+        .stTextInput, .stSelectbox, .stNumberInput, .stSlider {{
+            background-color: #f0f0f0 !important;
+            border-radius: 8px;
+        }}
+
+        /* Center button */
+        .button-container {{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }}
+
+        /* Button styling - Light aquatic */
+        .stButton > button {{
+            background-color: #80d4ff !important;  /* Light aquatic */
+            color: black !important;
+            border-radius: 10px;
+            font-size: 16px;
+            padding: 8px 20px;
+        }}
+
+        /* Estimated Price Section */
+        .price-container {{
+            background-color: #ffcc00;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }}
+
+        /* Rupee symbol color */
+        .rupee {{
+            color: #2ecc71;  /* Light green */
+            font-weight: bold;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Center the title
-st.markdown("<div class='container'><h1>💻 Laptop Price Predictor - SmartTech Co.</h1></div>", unsafe_allow_html=True)
+# Centered Title
+st.markdown("<h1 style='text-align:center;'>💻 Laptop Price Predictor - SmartTech Co.</h1>", unsafe_allow_html=True)
+
+
+
 
 # Layout - Two columns
 col1, col2 = st.columns(2)
