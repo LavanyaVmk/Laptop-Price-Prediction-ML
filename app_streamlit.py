@@ -6,16 +6,16 @@ import streamlit as st
 import numpy as np
 import pickle
 
-# Load the trained model
-with open("laptop_price_model.pkl", "rb") as file:
-    model = pickle.load(file)
+# Load the trained model and dataset
+pipe = pickle.load(open('pipe.pkl', 'rb'))
+df = pickle.load(open('df.pkl', 'rb'))
 
 # Set background image
 st.markdown(
     f"""
     <style>
     .stApp {{
-        background-image: url("https://raw.githubusercontent.com/LavanyaVmk/Laptop-Price-Prediction-ML/main/laptop_background_img.webp");
+        background-image: url("https://raw.githubusercontent.com//Laptop-Price-Prediction-ML/main/laptop_background_img.webp");
         background-size: cover;
         background-position: center;
     }}
