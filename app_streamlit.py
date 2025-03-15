@@ -16,14 +16,14 @@ st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="
 
 
 # Use your GitHub-hosted background image
-background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img11.jpeg?raw=true"
+background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 # Apply custom CSS
 st.markdown(
     f"""
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: cover;
+            background-size: 80%;;
         }}
         h1 {{
             text-align: left;
