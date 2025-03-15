@@ -10,11 +10,14 @@ import numpy as np
 pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
+
 # Set page config
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
-# Apply custom CSS for background image
-background_image_url = "https://your-image-url.com/image.jpg"  
+# GitHub URL for the background image (Replace 'your-username' with your actual GitHub username)
+background_image_url = "https://raw.githubusercontent.com/your-username/Laptop-Price-Prediction-ML/main/img1.jpeg"
+
+# Apply custom CSS for background image and styling
 st.markdown(
     f"""
     <style>
@@ -33,16 +36,20 @@ st.markdown(
             width: 100%;
             font-size: 18px;
             font-weight: bold;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
         }}
-        .stSelectbox, .stNumberInput, .stSlider, .stTextInput {{
+        .stSelectbox label, .stNumberInput label, .stSlider label {{
             font-size: 16px;
+            font-weight: bold;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# App title
+# Title
 st.markdown("<h1>💻 Laptop Price Predictor - SmartTech Co.</h1>", unsafe_allow_html=True)
 
 # Layout - Two columns
