@@ -18,65 +18,70 @@ background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML
 
 # Apply CSS for custom styling
 st.markdown(
-    f"""
+    """
     <style>
-        /* Background styling */
-        .stApp {{
-            background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: cover;
-        }}
+        /* Reduce Input Box Size */
+        .stSelectbox, .stTextInput, .stNumberInput, .stSlider {
+            width: 60% !important; /* Adjust the width as needed */
+            background: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent */
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            font-weight: bold;
+            padding: 8px;
+            border-radius: 5px;
+            margin: auto;
+            display: block;
+        }
 
-        /* Centered Title with Silver Gradient */
-        h1 {{
+        /* Ensure text inside input fields is white */
+        input, select, textarea {
+            color: white !important;
+        }
+
+        /* Placeholder text color */
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Centered Title */
+        h1 {
             text-align: center;
-            background: linear-gradient(to right, #C0C0C0, #A9A9A9);
+            background: linear-gradient(to right, #ffffff, #dcdcdc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 2rem;
             font-weight: bold;
-        }}
+        }
 
-        /* Reduce Input Field Width and Change Background to White */
-        .stSelectbox, .stTextInput, .stNumberInput, .stSlider {{
-            background-color: white !important;
-            width: 80% !important;
-            margin: auto;
-            border-radius: 8px;
-        }}
-
-        /* Predict Button - Centered */
-        .button-container {{
+        /* Centered Predict Button */
+        .button-container {
             display: flex;
             justify-content: center;
             margin-top: 10px;
-        }}
+        }
 
-        .stButton > button {{
-            background-color: #4CAF50 !important;
-            color: white !important;
+        /* Style Predict Button */
+        .stButton > button {
+            background-color: white !important;
+            color: black !important;
             border-radius: 10px;
             font-size: 16px;
             padding: 10px 25px;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-        }}
+            border: 2px solid black;
+            transition: 0.3s ease;
+        }
 
-        /* Estimated Price Box */
-        .price-container {{
-            background-color: #ffcc00;
-            color: black;
-            font-size: 20px;
-            font-weight: bold;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 20px;
-        }}
+        /* Button Hover Effect */
+        .stButton > button:hover {
+            background-color: black !important;
+            color: white !important;
+        }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 # Centered Title with Silver Shade
 st.markdown("""<h1 class='title'>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
 
