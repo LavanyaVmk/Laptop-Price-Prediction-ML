@@ -3,130 +3,82 @@ os.system("pip install scikit-learn")
 import sklearn
 
 import streamlit as st
-import pickle
 import numpy as np
+import pickle
 
-# Load the trained model and dataset
-pipe = pickle.load(open('pipe.pkl', 'rb'))
-df = pickle.load(open('df.pkl', 'rb'))
+# Load the trained model
+with open("laptop_price_model.pkl", "rb") as file:
+    model = pickle.load(file)
 
-# Apply custom styles
-st.markdown("""
+# Set background image
+st.markdown(
+    f"""
     <style>
-    body {
-        background-image: url("https://source.unsplash.com/1600x900/?technology,laptop");
+    .stApp {{
+        background-image: url("https://raw.githubusercontent.com/LavanyaVmk/Laptop-Price-Prediction-ML/main/laptop_background_img.webp");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
-        font-family: 'Arial', sans-serif;
-    }
+    }}
 
-    .stApp {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    h1 {
-        font-size: 34px !important;
-        color: #003366;
-        text-align: center;
+    /* Increase font size and bold headings */
+    h1, h2, h3, h4, h5, h6 {{
         font-weight: bold;
-        animation: fadeIn 2s ease-in-out;
-    }
-
-    h2, h3 {
         font-size: 24px !important;
-        color: #003366;
+    }}
+    label {{
         font-weight: bold;
-    }
+        font-size: 18px;
+    }}
 
-    .stButton>button {
-        background-color: #4CAF50;
-        color: white;
-        font-size: 20px;
-        padding: 12px;
-        border-radius: 8px;
-        width: 100%;
-        transition: 0.3s;
-    }
-
-    .stButton>button:hover {
-        background-color: #45a049;
-        transform: scale(1.05);
-    }
-
-    .stSelectbox, .stNumberInput, .stSlider {
-        background-color: #f0f0f0;
-        border-radius: 5px;
-        padding: 5px;
-    }
-
-    .prediction-box {
-        background-color: #F4D03F;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
+    /* Center the price prediction box */
+    .prediction-box {{
         font-size: 22px;
         font-weight: bold;
-    }
-
-    @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
+        text-align: center;
+        padding: 15px;
+        background-color: #FFD700;
+        border-radius: 10px;
+        margin-top: 20px;
+    }}
     </style>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-# App title with company branding
-st.title("💻 Laptop Price Predictor - SmartTech Co.")
+# Title
+st.markdown("<h1 style='text-align: center;'>💻 Laptop Price Predictor - SmartTech Co.</h1>", unsafe_allow_html=True)
 
-# Arrange input fields in two columns for better layout
+# User Inputs
 col1, col2 = st.columns(2)
 
 with col1:
-    company = st.selectbox('Brand', df['Company'].unique())
-    ram = st.selectbox('Memory (RAM in GB)', [2, 4, 6, 8, 12, 16, 24, 32, 64])
-    touchscreen = st.selectbox('Touchscreen', ['No', 'Yes'])
-    hdd = st.selectbox('Hard Drive (HDD in GB)', [0, 128, 256, 512, 1024, 2048])
-    weight = st.number_input('Weight (in Kg)')
+    brand = st.selectbox("Brand", ["Apple", "Dell", "HP", "Lenovo", "Asus", "Acer", "MSI"])
+    ram = st.selectbox("Memory (RAM in GB)", [2, 4, 8, 16, 32])
+    touchscreen = st.selectbox("Touchscreen", ["No", "Yes"])
+    hdd = st.selectbox("Hard Drive (HDD in GB)", [0, 500, 1000, 2000])
+    weight = st.number_input("Weight (in Kg)", min_value=0.5, max_value=5.0, step=0.1)
+    processor = st.selectbox("Processor (CPU)", ["Intel Core i3", "Intel Core i5", "Intel Core i7", "AMD Ryzen 3", "AMD Ryzen 5", "AMD Ryzen 7"])
 
 with col2:
-    laptop_type = st.selectbox('Type', df['TypeName'].unique())
-    ips = st.selectbox('IPS Display', ['No', 'Yes'])
-    ssd = st.selectbox('Solid State Drive (SSD in GB)', [0, 8, 128, 256, 512, 1024])
-    screen_size = st.slider('Screen Size (in inches)', 10.0, 18.0, 13.0)
-    resolution = st.selectbox('Screen Resolution', [
-        '1920x1080', '1366x768', '1600x900', '3840x2160', 
-        '3200x1800', '2880x1800', '2560x1600', '2560x1440', '2304x1440'
-    ])
+    laptop_type = st.selectbox("Type", ["Ultrabook", "Gaming", "Notebook", "2 in 1 Convertible", "Netbook"])
+    ips_display = st.selectbox("IPS Display", ["No", "Yes"])
+    ssd = st.number_input("Solid State Drive (SSD in GB)", min_value=0, max_value=2000, step=128)
+    screen_size = st.slider("Screen Size (in inches)", 10.0, 18.0, 13.0)
+    resolution = st.selectbox("Screen Resolution", ["1920x1080", "1366x768", "3840x2160"])
+    gpu = st.selectbox("Graphics Card (GPU)", ["Intel", "NVIDIA", "AMD"])
+    os = st.selectbox("Operating System", ["Windows", "Mac", "Linux"])
 
-cpu = st.selectbox('Processor (CPU)', df['Cpu brand'].unique())
-gpu = st.selectbox('Graphics Card (GPU)', df['Gpu brand'].unique())
-os = st.selectbox('Operating System', df['os'].unique())
+# Prediction
+if st.button("💰 Predict Price", use_container_width=True):
+    # Convert categorical inputs to numerical
+    touchscreen = 1 if touchscreen == "Yes" else 0
+    ips_display = 1 if ips_display == "Yes" else 0
 
-# Predict price
-if st.button('💰 Predict Price'):
-    # Convert categorical selections
-    touchscreen = 1 if touchscreen == 'Yes' else 0
-    ips = 1 if ips == 'Yes' else 0
-
-    # Compute Pixels Per Inch (PPI)
-    X_res, Y_res = map(int, resolution.split('x'))
-    ppi = ((X_res ** 2) + (Y_res ** 2)) ** 0.5 / screen_size
-
-    # Create feature array
-    query = np.array([company, laptop_type, ram, weight, touchscreen, ips, ppi, cpu, hdd, ssd, gpu, os]).reshape(1, -1)
-
-    # Predict price and format output
-    predicted_price = int(np.exp(pipe.predict(query)[0]))
-
-    # Display result in a better format
-    st.markdown(f"""
-        <div class="prediction-box">
-            <h2 style="color:#2E4053;">💰 Estimated Laptop Price: <span style="color:#E74C3C;">₹{predicted_price}</span></h2>
-        </div>
-    """, unsafe_allow_html=True)
-
-
-
+    # Feature array (Modify according to your model)
+    features = np.array([[brand, laptop_type, ram, touchscreen, ips_display, hdd, ssd, screen_size, weight, resolution, processor, gpu, os]])
+    
+    # Predict price
+    predicted_price = model.predict(features)[0]
+    
+    # Display result
+    st.markdown(f"<div class='prediction-box'>💰 Estimated Laptop Price: ₹{int(predicted_price)}</div>", unsafe_allow_html=True)
