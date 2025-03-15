@@ -11,28 +11,30 @@ pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
 
+import streamlit as st
+
 # Set page config
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
-# Apply custom CSS for background image and transparency
-background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
+# Background image URL from GitHub
+background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img2.jpg?raw=true"
 
+# Apply CSS for styling
 st.markdown(
     f"""
     <style>
+        /* Background styling */
         .stApp {{
-            background-image: url("{background_image_url}");
-            background-size: contain;  /* Ensures full image is visible */
-            background-position: top center; /* Adjusts alignment */
-            background-repeat: no-repeat;  /* Prevents tiling */
-            background-attachment: fixed;
+            background: url("{background_image_url}") no-repeat center center fixed;
+            background-size: cover;
         }}
 
-        /* Transparent Inputs */
-        .stSelectbox, .stNumberInput, .stSlider, .stTextInput {{
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            padding: 5px;
+        /* Center content */
+        .container {{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }}
 
         /* Title Styling */
@@ -40,35 +42,35 @@ st.markdown(
             text-align: center;
             font-size: 36px;
             font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
         }}
 
-        /* Adjust Button Style */
+        /* Button Styling */
         .stButton > button {{
-            width: 100%;
+            width: 80%;
+            max-width: 300px;
             font-size: 18px;
             font-weight: bold;
-            background-color: #5cb85c !important;
-            color: white !important;
-            border-radius: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
         }}
 
-        /* Price Display Styling */
-        .stMarkdown {{
-            background-color: rgba(255, 223, 0, 0.8);
-            color: #222;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
+        /* Form elements spacing */
+        .stTextInput, .stSelectbox, .stNumberInput, .stSlider {{
+            width: 80%;
+            max-width: 400px;
+            margin: auto;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Title
-st.markdown("<h1>💻 Laptop Price Predictor - SmartTech Co.</h1>", unsafe_allow_html=True)
+# Center the title
+st.markdown("<div class='container'><h1>💻 Laptop Price Predictor - SmartTech Co.</h1></div>", unsafe_allow_html=True)
 
 # Layout - Two columns
 col1, col2 = st.columns(2)
