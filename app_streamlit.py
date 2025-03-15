@@ -20,31 +20,49 @@ background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML
 st.markdown(
     f"""
     <style>
+        /* Background styling */
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: contain; /* Show full image without zoom */
+            background-size: cover;
         }}
-        .block-container {{
-            padding: 2rem;
-            max-width: 600px;
+
+        /* Centered Title with Silver Gradient */
+        h1 {{
+            text-align: center;
+            background: linear-gradient(to right, #C0C0C0, #A9A9A9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: bold;
+        }}
+
+        /* Reduce Input Field Width and Change Background to White */
+        .stSelectbox, .stTextInput, .stNumberInput, .stSlider {{
+            background-color: white !important;
+            width: 80% !important;
             margin: auto;
-        }}
-        .stTextInput, .stSelectbox, .stNumberInput, .stSlider {{
-            background-color: #f0f0f0 !important;
             border-radius: 8px;
         }}
+
+        /* Predict Button - Centered */
         .button-container {{
             display: flex;
             justify-content: center;
             margin-top: 10px;
         }}
+
         .stButton > button {{
-            background-color: #80d4ff !important;
-            color: black !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
             border-radius: 10px;
             font-size: 16px;
-            padding: 8px 20px;
+            padding: 10px 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
         }}
+
+        /* Estimated Price Box */
         .price-container {{
             background-color: #ffcc00;
             color: black;
@@ -55,22 +73,10 @@ st.markdown(
             text-align: center;
             margin-top: 20px;
         }}
-        .rupee {{
-            color: #2ecc71;
-            font-weight: bold;
-        }}
-        /* Silver Title */
-        .title {{
-            color: #C0C0C0;  /* Silver Shade */
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-        }}
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # Centered Title with Silver Shade
 st.markdown("""<h1 class='title'>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
 
