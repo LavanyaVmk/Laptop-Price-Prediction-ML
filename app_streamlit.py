@@ -17,14 +17,13 @@ st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="
 
 # Use your GitHub-hosted background image
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
-
 # Apply custom CSS
 st.markdown(
     f"""
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: cover;
+            background-size: 100% 100%;;
         }}
         h1 {{
             text-align: left;
@@ -33,19 +32,17 @@ st.markdown(
             color: white;
         }}
         .stButton > button {{
-    width: 50%;                 /* Reduce width to 50% */
-    font-size: 18px;            
-    font-weight: bold;          
-    background-color: black;     /* Change button color to black */
-    color: white;               /* Keep text color white */
-    border-radius: 8px;         
-    display: block;             /* Ensure it behaves as a block element */
-    margin: 0 auto;             /* Center the button horizontally */
-
-
+            width: 50%;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
         }}
-        /* Reduce text box width to 40% */
-        .stTextInput > div > div > input {{
+        /* Reduce textbox width */
+        div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
             width: 40% !important;
         }}
     </style>
@@ -53,10 +50,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
-# Centered Title with Silver Shade
-st.markdown("""<h1 class='title'>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
-
+# Left-aligned title
+st.markdown("""<h1>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
 # Stepwise Input Fields (One by One)
 company = st.selectbox('**Brand**', df['Company'].unique())
 laptop_type = st.selectbox('**Type**', df['TypeName'].unique())
