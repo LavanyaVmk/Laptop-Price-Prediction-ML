@@ -15,7 +15,7 @@ df = pickle.load(open('df.pkl', 'rb'))
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
 # GitHub URL for the background image (Replace 'your-username' with your actual GitHub username)
-background_image_url = "https://raw.githubusercontent.com/your-username/Laptop-Price-Prediction-ML/main/img1.jpeg"
+background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 
 # Apply custom CSS for background image and styling
 st.markdown(
