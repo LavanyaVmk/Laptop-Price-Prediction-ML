@@ -16,7 +16,7 @@ st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="
 
 
 # Use your GitHub-hosted background image
-background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
+background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img11.jpeg?raw=true"
 # Apply custom CSS
 st.markdown(
     f"""
@@ -35,11 +35,11 @@ st.markdown(
             width: 30%;
             font-size: 18px;
             font-weight: bold;
-            background-color: black;
+            background-color: grey;
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             display: block;
-            margin: 0 auto;
+            
         }}
         /* Reduce textbox width */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
