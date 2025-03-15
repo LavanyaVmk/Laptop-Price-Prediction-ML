@@ -6,36 +6,45 @@ import streamlit as st
 import pickle
 import numpy as np
 
-
 # Load the trained model and dataset
 pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
-
-
-# Apply custom styles (background, fonts, buttons)
+# Apply custom styles
 st.markdown("""
     <style>
     body {
-        background: linear-gradient(to right, #ece9e6, #ffffff);
+        background-image: url("https://source.unsplash.com/1600x900/?technology,laptop");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         font-family: 'Arial', sans-serif;
     }
-    
+
     .stApp {
-        background-color: #f8f9fa;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
     }
-    
-    .stTitle {
-        color: #3366CC;
+
+    h1 {
+        font-size: 34px !important;
+        color: #003366;
         text-align: center;
-        font-size: 32px;
+        font-weight: bold;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h2, h3 {
+        font-size: 24px !important;
+        color: #003366;
         font-weight: bold;
     }
 
     .stButton>button {
         background-color: #4CAF50;
         color: white;
-        font-size: 18px;
+        font-size: 20px;
         padding: 12px;
         border-radius: 8px;
         width: 100%;
@@ -58,16 +67,21 @@ st.markdown("""
         padding: 20px;
         border-radius: 10px;
         text-align: center;
-        font-size: 20px;
+        font-size: 22px;
+        font-weight: bold;
     }
 
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# App title
-st.title("💻 Laptop Price Predictor")
+# App title with company branding
+st.title("💻 Laptop Price Predictor - SmartTech Co.")
 
-# Arrange input fields in two columns
+# Arrange input fields in two columns for better layout
 col1, col2 = st.columns(2)
 
 with col1:
@@ -113,3 +127,6 @@ if st.button('💰 Predict Price'):
             <h2 style="color:#2E4053;">💰 Estimated Laptop Price: <span style="color:#E74C3C;">₹{predicted_price}</span></h2>
         </div>
     """, unsafe_allow_html=True)
+
+
+
