@@ -5,8 +5,6 @@ import sklearn
 import streamlit as st
 import pickle
 import numpy as np
-import base64
-
 
 # Load the trained model and dataset
 pipe = pickle.load(open('pipe.pkl', 'rb'))
@@ -15,27 +13,34 @@ df = pickle.load(open('df.pkl', 'rb'))
 # Set page config
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
-
-def set_background(image_file):
-    with open(image_file, "rb") as img:
-        encoded_string = base64.b64encode(img.read()).decode()
-    
-    st.markdown(
-        f"""
-        <style>
+# Apply custom CSS for background image
+background_image_url = "https://your-image-url.com/image.jpg"  
+st.markdown(
+    f"""
+    <style>
         .stApp {{
-            background-image: url("data:image/webp;base64,{encoded_string}");
+            background-image: url("{background_image_url}");
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
         }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-# Call function to set background
-set_background("laptop_background_img.webp")
-
+        h1 {{
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+        }}
+        .stButton > button {{
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+        }}
+        .stSelectbox, .stNumberInput, .stSlider, .stTextInput {{
+            font-size: 16px;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # App title
 st.markdown("<h1>💻 Laptop Price Predictor - SmartTech Co.</h1>", unsafe_allow_html=True)
