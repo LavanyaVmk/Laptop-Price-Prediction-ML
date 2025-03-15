@@ -14,35 +14,53 @@ df = pickle.load(open('df.pkl', 'rb'))
 # Set page config
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
-# GitHub URL for the background image (Replace 'your-username' with your actual GitHub username)
+# Apply custom CSS for background image and transparency
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 
-# Apply custom CSS for background image and styling
 st.markdown(
     f"""
     <style>
         .stApp {{
             background-image: url("{background_image_url}");
-            background-size: cover;
-            background-position: center;
+            background-size: contain;  /* Ensures full image is visible */
+            background-position: top center; /* Adjusts alignment */
+            background-repeat: no-repeat;  /* Prevents tiling */
             background-attachment: fixed;
         }}
+
+        /* Transparent Inputs */
+        .stSelectbox, .stNumberInput, .stSlider, .stTextInput {{
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            padding: 5px;
+        }}
+
+        /* Title Styling */
         h1 {{
             text-align: center;
             font-size: 36px;
             font-weight: bold;
         }}
+
+        /* Adjust Button Style */
         .stButton > button {{
             width: 100%;
             font-size: 18px;
             font-weight: bold;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 8px;
+            background-color: #5cb85c !important;
+            color: white !important;
+            border-radius: 10px;
         }}
-        .stSelectbox label, .stNumberInput label, .stSlider label {{
-            font-size: 16px;
+
+        /* Price Display Styling */
+        .stMarkdown {{
+            background-color: rgba(255, 223, 0, 0.8);
+            color: #222;
+            font-size: 20px;
             font-weight: bold;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
         }}
     </style>
     """,
