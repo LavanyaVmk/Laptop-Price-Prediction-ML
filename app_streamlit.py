@@ -23,7 +23,7 @@ st.markdown(
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 100% 100%;;
+            background-size: cover;
         }}
         h1 {{
             text-align: left;
@@ -32,7 +32,7 @@ st.markdown(
             color: white;
         }}
         .stButton > button {{
-            width: 50%;
+            width: 30%;
             font-size: 18px;
             font-weight: bold;
             background-color: black;
@@ -82,7 +82,7 @@ if st.button('🔮 Predict Price'):
     price_inr = f"₹{predicted_price:,.2f}"
     st.markdown(
         f"""
-        <div style="background-color: #ffcc00; padding: 15px; border-radius: 10px; text-align: center; font-size: 24px; font-weight: bold;">
+        <div style="background-color: #ffcc00; padding: 10px; border-radius: 8px; text-align: center; font-size: 24px; font-weight: bold;">
             🏷️ Estimated Laptop Price: <span style="color: #d80000;">{price_inr}</span>
         </div>
         """,
