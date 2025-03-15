@@ -14,7 +14,7 @@ df = pickle.load(open('df.pkl', 'rb'))
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
 # Background image URL from GitHub
-background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img2.jpg?raw=true"
+background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img3.png?raw=true"
 
 # Apply CSS for custom styling
 st.markdown(
@@ -23,7 +23,7 @@ st.markdown(
         /* Background styling */
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: contain;
+            background-size: cover;
         }}
 
         /* Remove grid layout */
