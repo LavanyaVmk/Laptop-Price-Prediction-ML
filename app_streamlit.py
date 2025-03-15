@@ -13,74 +13,38 @@ df = pickle.load(open('df.pkl', 'rb'))
 # Set page config
 st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
 
-# Background image URL from GitHub
-background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img3.png?raw=true"
 
-# Apply CSS for custom styling
+
+# Use your GitHub-hosted background image
+background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
+
+# Apply custom CSS
 st.markdown(
-    """
+    f"""
     <style>
-        /* Reduce Input Box Size */
-        .stSelectbox, .stTextInput, .stNumberInput, .stSlider {
-            width: 60% !important; /* Adjust the width as needed */
-            background: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent */
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
-            color: white !important;
-            font-weight: bold;
-            padding: 8px;
-            border-radius: 5px;
-            margin: auto;
-            display: block;
-        }
-
-        /* Ensure text inside input fields is white */
-        input, select, textarea {
-            color: white !important;
-        }
-
-        /* Placeholder text color */
-        ::placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        /* Centered Title */
-        h1 {
+        .stApp {{
+            background: url("{background_image_url}") no-repeat center center fixed;
+            background-size: cover;
+        }}
+        h1 {{
             text-align: center;
-            background: linear-gradient(to right, #ffffff, #dcdcdc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 2rem;
+            font-size: 36px;
             font-weight: bold;
-        }
-
-        /* Centered Predict Button */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        /* Style Predict Button */
-        .stButton > button {
-            background-color: white !important;
-            color: black !important;
-            border-radius: 10px;
-            font-size: 16px;
-            padding: 10px 25px;
+            color: white;
+        }}
+        .stButton > button {{
+            width: 50%;
+            font-size: 18px;
             font-weight: bold;
-            border: 2px solid black;
-            transition: 0.3s ease;
-        }
-
-        /* Button Hover Effect */
-        .stButton > button:hover {
-            background-color: black !important;
-            color: white !important;
-        }
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
+        }}
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Centered Title with Silver Shade
 st.markdown("""<h1 class='title'>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
