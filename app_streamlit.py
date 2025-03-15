@@ -23,22 +23,46 @@ st.markdown(
     f"""
     <style>
         .stApp {{
-            background: url("{background_image_url}") no-repeat center center fixed;
+            background: url("{"{background_image_url}"}") no-repeat center center fixed;
             background-size: cover;
         }}
+
         h1 {{
-            text-align: center;
-            font-size: 36px;
+            text-align: left; /* Aligns heading to the left */
+            font-size: 28px; /* Reduced size */
             font-weight: bold;
-            color: white;
+            color: black;
+            margin-left: 20px; /* Adjusts left margin to match text boxes */
         }}
+
+        /* Reduce text box size */
+        .stTextInput > div > div > input {{
+            width: 40% !important; /* Reduce width to 50% */
+            height: 30px !important; /* Adjust height */
+            font-size: 14px; /* Adjust font size if needed */
+        }}
+
+        .stButton {{
+            display: flex;
+            justify-content: center; /* Centers button */
+        }}
+
         .stButton > button {{
-            width: 50%;
+            background-color: black !important;
+            color: white !important;
+            border-radius: 10px;
+            padding: 10px 20px;
             font-size: 18px;
             font-weight: bold;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 8px;
+            border: none;
+            transition: all 0.3s ease-in-out;
+        }}
+
+        .stButton > button:hover {{
+            background-color: white !important;
+            color: black !important;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }}
     </style>
     """,
@@ -47,7 +71,7 @@ st.markdown(
 
 
 # Centered Title with Silver Shade
-st.markdown("""<h1 class='title'>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
+#st.markdown("""<h1 class='title'>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
 
 # Stepwise Input Fields (One by One)
 company = st.selectbox('**Brand**', df['Company'].unique())
