@@ -54,12 +54,12 @@ st.markdown(
         }}
         /* Adjust input fields width */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
-            width: 50% !important;
+            width: 30% !important;
             margin: left;
         }}
         /* Adjust slider styling */
         .stSlider {{
-            width: 50% !important;
+            width: 30% !important;
             margin: left;
         }}
     </style>
