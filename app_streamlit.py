@@ -28,15 +28,21 @@ st.markdown(
             padding-left: 15% !important;
             padding-right: 15% !important;
         }}
-        /*  Heading */
-        h1 {{
-            text-align: left;
-            font-size: 12px;
-            font-weight: bold;
-            background-color: #fffd37 !important;
-            width: 48% !important;
-            color: #1900ff !important; /* Royal Blue */
-        }}
+        
+/* Heading */
+h1 {{
+    text-align: left;
+    font-size: 32px !important; /* Increased font size */
+    font-weight: bold;
+    background-color: #fffd37 !important; /* Sunshine Yellow */
+    width: 70% !important; /* Adjusted width to align with padding */
+    color: #1900ff !important; /* Royal Blue */
+    padding: 10px 15px; /* Add space inside */
+    border-radius: 8px; /* Smooth rounded corners */
+    margin-left: 5%; /* Adjust left margin for better alignment */
+}}
+
+
         /* Increase font size for labels */
 
         /* Change Textbox Label Color to Royal Blue */
