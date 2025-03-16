@@ -38,7 +38,7 @@ h1 {{
     width: 45% !important; /* Adjusted width to align with padding */
     color: #1900ff !important; /* Royal Blue */
     padding: 8px 10px; /* Add space inside */
-    border-radius: 8px; /* Smooth rounded corners */
+    border-radius: 5px; /* Smooth rounded corners */
     margin-left: 5%; /* Adjust left margin for better alignment */
     margin-bottom: 30px; /* Adjust space between heading and first label */
 
