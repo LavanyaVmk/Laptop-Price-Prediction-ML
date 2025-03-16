@@ -25,26 +25,31 @@ st.markdown(
         }}
         /* Adjust main container slightly left */
         .block-container {{
-            padding-left: 20% !important;
-            padding-right: 20% !important;
+            padding-left: 17% !important;
+            padding-right: 17% !important;
         }}
-        /* Darker Yellow Heading */
+        /*  Heading */
         h1 {{
             text-align: left;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
-            color: #39FF14 !important; /* Neon Green */
+            color: #1900ff;  !important; /* Royal Blue */
         }}
         /* Increase font size for labels */
-        label {{
-            font-size: 18px !important;
-            font-weight: bold !important;
-            color: #1900ff;  /* Royal Blue */
+
+        /* Change Textbox Label Color to Royal Blue */
+           div[data-testid="stSelectbox"] label, 
+           div[data-testid="stNumberInput"] label, 
+           div[data-testid="stSlider"] label {{
+           color: #4169E1 !important;  /* Royal Blue */
+           font-weight: bold;
+           font-size: 16px;
         }}
+
+        
         /* Adjust Input Field Styles */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"], div[data-testid="stSlider"] {{
-            width: 40% !important;
-            background-color: white !important;
+            width: 45% !important;
             color: black !important;
             font-weight: bold !important;
         }}
