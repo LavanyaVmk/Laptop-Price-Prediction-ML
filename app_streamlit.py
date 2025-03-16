@@ -32,7 +32,7 @@ st.markdown(
         }}
         .stButton {{
             display: flex;
-            justify-content: center; /* Centers button */
+            justify-content: left; /* Slightly shifted left */
         }}
 
         .stButton > button {{
@@ -47,27 +47,29 @@ st.markdown(
         }}
 
         .stButton > button:hover {{
-            background-color: white !important;
-            color: black !important;
+            background-color: #d80000 !important; /* Success button turns red */
+            color: white !important;
             transform: scale(1.1);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }}
+        
         /* Adjust input fields width */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
             width: 30% !important;
-            margin: left;
+            margin-left: 5%;
         }}
+
         /* Adjust slider styling */
         .stSlider {{
             width: 30% !important;
-            margin: left;
+            margin-left: 5%;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Centered title
+# Title aligned slightly left
 st.markdown("""<h1>💻 Laptop Price Predictor </h1>""", unsafe_allow_html=True)
 
 # Stepwise Input Fields
@@ -88,8 +90,8 @@ cpu = st.selectbox('**Processor (CPU)**', df['Cpu brand'].unique())
 gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
-# Centered Predict Button
-st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+# Predict Button (Left Aligned)
+st.markdown("<div style='text-align: left;'>", unsafe_allow_html=True)
 if st.button('Predict Price', key='predict_button'):
     touchscreen = 1 if touchscreen == 'Yes' else 0
     ips = 1 if ips == 'Yes' else 0
@@ -100,7 +102,7 @@ if st.button('Predict Price', key='predict_button'):
     price_inr = f"₹{predicted_price:,.2f}"
     st.markdown(
         f"""
-        <div style="background-color: #fffd37; padding: 9px; border-radius: 8px; text-align: center; font-size: 24px; font-weight: bold;">
+        <div style="background-color: #fffd37; padding: 8px; border-radius: 8px; text-align: center; font-size: 24px; font-weight: bold;">
             🏷️ Estimated Laptop Price: <span style="color: #d80000;">{price_inr}</span>
         </div>
         """,
