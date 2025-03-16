@@ -24,32 +24,28 @@ st.markdown(
             background: url("{background_image_url}") no-repeat center center fixed;
             background-size: 75%;
         }}
-        /* Slightly move content left (not fully center) */
+        /* Move content slightly left (not extreme left) */
         .block-container {{
-            margin-left: 8% !important; /* Adjusted for slight left alignment */
-            margin-right: 20% !important;
+            padding-left: 10% !important; /* Adjusted for slight left alignment */
+            padding-right: 10% !important;
         }}
         /* Heading in Sunshine Yellow */
         h1 {{
             text-align: left;
             font-size: 32px;
             font-weight: bold;
-            color: #fffd37;  /* Sunshine Yellow */
+            color: #fffd37 !important;  /* Corrected Sunshine Yellow */
         }}
-        /* Button Styling - Shorter width */
-        .stButton {{
-            display: flex;
-            justify-content: flex-start; /* Keeps button left */
-        }}
-
+        /* Predict Button Styling */
         .stButton > button {{
             background-color: black !important;
             color: white !important;
-            border-radius: 10px;
-            padding: 8px 16px; /* Shortened width */
-            font-size: 16px; /* Slightly smaller font */
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
             font-weight: bold;
             border: none;
+            width: 200px; /* Adjusted button width */
             transition: all 0.3s ease-in-out;
         }}
 
@@ -59,18 +55,19 @@ st.markdown(
             transform: scale(1.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }}
-        
-        /* Input Fields Styling */
-        div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
-            width: 35% !important; /* Shortened width */
-            margin-left: 5%;
+
+        /* Shorter Price Display Box */
+        .price-box {{
+            background-color: #fffd37; 
+            padding: 10px;
+            border-radius: 8px; 
+            text-align: center; 
+            font-size: 20px; 
+            font-weight: bold;
+            width: 50%; /* Reduced width */
+            margin: auto; /* Keeps it centered */
         }}
 
-        /* Adjust slider styling */
-        .stSlider {{
-            width: 35% !important;
-            margin-left: 5%;
-        }}
     </style>
     """,
     unsafe_allow_html=True
@@ -97,8 +94,7 @@ cpu = st.selectbox('**Processor (CPU)**', df['Cpu brand'].unique())
 gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
-# Predict Button (Left Aligned & Shortened)
-st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+# Predict Button (Slightly Left)
 if st.button('Predict Price', key='predict_button'):
     touchscreen = 1 if touchscreen == 'Yes' else 0
     ips = 1 if ips == 'Yes' else 0
@@ -107,12 +103,6 @@ if st.button('Predict Price', key='predict_button'):
     query = np.array([company, laptop_type, ram, weight, touchscreen, ips, ppi, cpu, hdd, ssd, gpu, os]).reshape(1, -1)
     predicted_price = int(np.exp(pipe.predict(query)[0]))
     price_inr = f"₹{predicted_price:,.2f}"
-    st.markdown(
-        f"""
-        <div style="background-color: #fffd37; padding: 9px; border-radius: 8px; text-align: center; font-size: 20px; font-weight: bold; width: 40%;">
-            🏷️ Estimated Laptop Price: <span style="color: #d80000;">{price_inr}</span>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Display Price in Styled Box
+    st.markdown(f"""<div class='price-box'>🏷️ Estimated Laptop Price: <span style="color: #d80000;">{price_inr}</span></div>""", unsafe_allow_html=True)
