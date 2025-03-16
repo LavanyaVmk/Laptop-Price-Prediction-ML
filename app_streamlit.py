@@ -22,32 +22,32 @@ st.markdown(
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 77%;
+            background-size: 75%;
         }}
-        /* Shift content slightly more to center */
+        /* Slightly move content left (not fully center) */
         .block-container {{
-            margin-left: 15% !important;
-            margin-right: 15% !important;
+            margin-left: 8% !important; /* Adjusted for slight left alignment */
+            margin-right: 20% !important;
         }}
         /* Heading in Sunshine Yellow */
         h1 {{
-            text-align: center;
+            text-align: left;
             font-size: 32px;
             font-weight: bold;
-            color: #fffd37;
+            color: #fffd37;  /* Sunshine Yellow */
         }}
-        /* Button Style */
+        /* Button Styling - Shorter width */
         .stButton {{
             display: flex;
-            justify-content: center; /* Slightly more centered */
+            justify-content: flex-start; /* Keeps button left */
         }}
 
         .stButton > button {{
             background-color: black !important;
             color: white !important;
             border-radius: 10px;
-            padding: 10px 20px;
-            font-size: 18px;
+            padding: 8px 16px; /* Shortened width */
+            font-size: 16px; /* Slightly smaller font */
             font-weight: bold;
             border: none;
             transition: all 0.3s ease-in-out;
@@ -56,27 +56,27 @@ st.markdown(
         .stButton > button:hover {{
             background-color: #d80000 !important; /* Turns red */
             color: white !important;
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }}
         
         /* Input Fields Styling */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
-            width: 40% !important;
-            margin: auto;
+            width: 35% !important; /* Shortened width */
+            margin-left: 5%;
         }}
 
         /* Adjust slider styling */
         .stSlider {{
-            width: 40% !important;
-            margin: auto;
+            width: 35% !important;
+            margin-left: 5%;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Centered Title
+# Left-aligned title with Sunshine Yellow color
 st.markdown("""<h1>💻 Laptop Price Predictor </h1>""", unsafe_allow_html=True)
 
 # Input Fields
@@ -97,7 +97,7 @@ cpu = st.selectbox('**Processor (CPU)**', df['Cpu brand'].unique())
 gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
-# Predict Button (More Centered)
+# Predict Button (Left Aligned & Shortened)
 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
 if st.button('Predict Price', key='predict_button'):
     touchscreen = 1 if touchscreen == 'Yes' else 0
@@ -109,7 +109,7 @@ if st.button('Predict Price', key='predict_button'):
     price_inr = f"₹{predicted_price:,.2f}"
     st.markdown(
         f"""
-        <div style="background-color: #fffd37; padding: 12px; border-radius: 8px; text-align: center; font-size: 24px; font-weight: bold;">
+        <div style="background-color: #fffd37; padding: 9px; border-radius: 8px; text-align: center; font-size: 20px; font-weight: bold; width: 40%;">
             🏷️ Estimated Laptop Price: <span style="color: #d80000;">{price_inr}</span>
         </div>
         """,
