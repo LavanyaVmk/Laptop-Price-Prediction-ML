@@ -32,7 +32,7 @@ st.markdown(
          /* Heading */
 h1 {{
     text-align: left;
-    font-size: 42px !important; /* Increased font size */
+    font-size: 40px !important; /* Increased font size */
     font-weight: bold;
     background-color: #fffd37 !important; /* Sunshine Yellow */
     width: 45% !important; /* Adjusted width to align with padding */
