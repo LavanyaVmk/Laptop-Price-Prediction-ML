@@ -31,9 +31,9 @@ st.markdown(
         /*  Heading */
         h1 {{
             text-align: left;
-            font-size: 26px;
+            font-size: 20px;
             font-weight: bold;
-            color: #1900ff;  !important; /* Royal Blue */
+            color: #1900ff !important; /* Royal Blue */
         }}
         /* Increase font size for labels */
 
@@ -43,13 +43,14 @@ st.markdown(
            div[data-testid="stSlider"] label {{
            color: #4169E1 !important;  /* Royal Blue */
            font-weight: bold;
-           font-size: 16px;
+           font-size: 18px;
         }}
 
         
         /* Adjust Input Field Styles */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"], div[data-testid="stSlider"] {{
             width: 45% !important;
+            background-color: white !important;
             color: black !important;
             font-weight: bold !important;
         }}
@@ -63,7 +64,7 @@ st.markdown(
             color: white !important;
             border-radius: 8px;
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             margin-top: 40px !important;
             border: none;
