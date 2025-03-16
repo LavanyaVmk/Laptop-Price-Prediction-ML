@@ -25,13 +25,13 @@ st.markdown(
         }}
         /* Adjust main container slightly left */
         .block-container {{
-            padding-left: 17% !important;
-            padding-right: 17% !important;
+            padding-left: 15% !important;
+            padding-right: 15% !important;
         }}
         /*  Heading */
         h1 {{
             text-align: left;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             background-color: #fffd37 !important;
             width: 48% !important;
