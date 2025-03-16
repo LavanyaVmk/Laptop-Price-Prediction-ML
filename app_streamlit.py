@@ -11,7 +11,7 @@ pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
 # Set page config
-st.set_page_config(page_title="Laptop Price Predictor ", layout="wide")
+st.set_page_config(page_title="Laptop Price Predictor", layout="wide")
 
 # Use your GitHub-hosted background image
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
@@ -22,21 +22,29 @@ st.markdown(
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 75%;
+            background-size: 80%;
         }}
-        /* Move content slightly left (not extreme left) */
+        /* Adjust main container slightly left */
         .block-container {{
-            padding-left: 10% !important; /* Adjusted for slight left alignment */
-            padding-right: 10% !important;
+            padding-left: 12% !important; /* Slight left shift */
+            padding-right: 12% !important;
         }}
-        /* Heading in Sunshine Yellow */
+        /* Darker Yellow Heading */
         h1 {{
             text-align: left;
             font-size: 32px;
             font-weight: bold;
-            color: #fffd37 !important;  /* Corrected Sunshine Yellow */
+            color: #FFC300 !important;  /* Darker Sunshine Yellow */
         }}
-        /* Predict Button Styling */
+        /* Increase Textbox Width */
+        div[data-testid="stSelectbox"], div[data-testid="stNumberInput"], div[data-testid="stSlider"] {{
+            width: 50% !important;  /* Full width */
+        }}
+        /* Center Predict Button */
+        .stButton {{
+            display: flex;
+            justify-content: center;
+        }}
         .stButton > button {{
             background-color: black !important;
             color: white !important;
@@ -45,35 +53,32 @@ st.markdown(
             font-size: 16px;
             font-weight: bold;
             border: none;
-            width: 200px; /* Adjusted button width */
+            width: 200px; /* Balanced width */
             transition: all 0.3s ease-in-out;
         }}
-
         .stButton > button:hover {{
             background-color: #d80000 !important; /* Turns red */
             color: white !important;
             transform: scale(1.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }}
-
-        /* Shorter Price Display Box */
+        /* Price Display Box - Compact */
         .price-box {{
-            background-color: #fffd37; 
+            background-color: #FFC300; /* Darker yellow */
             padding: 10px;
             border-radius: 8px; 
             text-align: center; 
             font-size: 20px; 
             font-weight: bold;
-            width: 50%; /* Reduced width */
+            width: 50%; /* Adjusted width */
             margin: auto; /* Keeps it centered */
         }}
-
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Left-aligned title with Sunshine Yellow color
+# Left-aligned title with Darker Yellow color
 st.markdown("""<h1>💻 Laptop Price Predictor </h1>""", unsafe_allow_html=True)
 
 # Input Fields
@@ -94,7 +99,7 @@ cpu = st.selectbox('**Processor (CPU)**', df['Cpu brand'].unique())
 gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
-# Predict Button (Slightly Left)
+# Centered Predict Button
 if st.button('Predict Price', key='predict_button'):
     touchscreen = 1 if touchscreen == 'Yes' else 0
     ips = 1 if ips == 'Yes' else 0
