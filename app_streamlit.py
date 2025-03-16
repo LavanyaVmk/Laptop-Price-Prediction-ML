@@ -1,6 +1,5 @@
 import os
-os.system("pip install scikit-learn")
-import sklearn
+os.system("pip install -r requirements.txt")
 
 import streamlit as st
 import pickle
@@ -26,19 +25,28 @@ st.markdown(
         }}
         /* Adjust main container slightly left */
         .block-container {{
-            padding-left: 20% !important; /* Slight left shift */
+            padding-left: 20% !important;
             padding-right: 20% !important;
         }}
-        /* Royal Blue Heading */
+        /* Darker Yellow Heading */
         h1 {{
             text-align: left;
-            font-size: 25px;
+            font-size: 28px;
             font-weight: bold;
-            color: #1900ff !important;  /* Royal Blue */
+            color: #39FF14 !important; /* Neon Green */
         }}
-        /* Increase Textbox Width */
+        /* Increase font size for labels */
+        label {{
+            font-size: 18px !important;
+            font-weight: bold !important;
+            color: #1900ff;  /* Royal Blue */
+        }}
+        /* Adjust Input Field Styles */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"], div[data-testid="stSlider"] {{
-            width: 40% !important;  /* Full width */
+            width: 40% !important;
+            background-color: white !important;
+            color: black !important;
+            font-weight: bold !important;
         }}
         /* Center Predict Button */
         .stButton {{
@@ -46,41 +54,41 @@ st.markdown(
             justify-content: center;
         }}
         .stButton > button {{
-            background-color: #1900ff !important;
+            background-color: #4169E1 !important;
             color: white !important;
             border-radius: 8px;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             margin-top: 40px !important;
             border: none;
-            width: 200px; /* Balanced width */
+            width: 220px;
             transition: all 0.3s ease-in-out;
         }}
         .stButton > button:hover {{
-            background-color: #d80000 !important; /* Turns red */
-            color: white !important;
+            background-color: #39FF14 !important;
+            color: black !important;
             transform: scale(1.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }}
-        /* Price Display Box - Compact */
+        /* Price Display Box */
         .price-box {{
-            background-color: #fffd37; /* sunshite yellow */
+            background-color: #fffd37;
             padding: 10px;
             border-radius: 8px; 
             text-align: center; 
-            font-size: 20px; 
+            font-size: 22px; 
             font-weight: bold;
-            width: 50%; /* Adjusted width */
-            margin: auto; /* Keeps it centered */
+            width: 50%;
+            margin: auto;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Left-aligned title with Darker Yellow color
-st.markdown("""<h1> Laptop Price Predictor </h1>""", unsafe_allow_html=True)
+# Left-aligned title
+st.markdown("""<h1>💻 Laptop Price Predictor</h1>""", unsafe_allow_html=True)
 
 # Input Fields
 company = st.selectbox('**Brand**', df['Company'].unique())
