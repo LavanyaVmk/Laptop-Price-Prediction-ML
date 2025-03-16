@@ -11,48 +11,60 @@ pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
 # Set page config
-st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="wide")
-
-
+st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="centered")
 
 # Use your GitHub-hosted background image
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
+
 # Apply custom CSS
 st.markdown(
     f"""
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 80%;;
+            background-size: cover;
         }}
         h1 {{
-            text-align: left;
+            text-align: center;
             font-size: 32px;
             font-weight: bold;
             color: white;
         }}
-        .stButton > button {{
-            width: 30%;
-            font-size: 18px;
-            font-weight: bold;
-            background-color: grey;
-            color: white;
-            border-radius: 10px;
-            display: block;
-            
+        .button {{
+            background-color: #FFFD37;
+            color: black;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
         }}
-        /* Reduce textbox width */
+        .button:hover {{
+            background-color: #9DFF00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }}
+        /* Adjust input fields width */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
-            width: 40% !important;
+            width: 50% !important;
+            margin: auto;
+        }}
+        /* Adjust slider styling */
+        .stSlider {{
+            width: 70% !important;
+            margin: auto;
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Left-aligned title
+# Centered title
 st.markdown("""<h1>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
-# Stepwise Input Fields (One by One)
+
+# Stepwise Input Fields
 company = st.selectbox('**Brand**', df['Company'].unique())
 laptop_type = st.selectbox('**Type**', df['TypeName'].unique())
 ram = st.selectbox('**Memory (RAM in GB)**', [2, 4, 6, 8, 12, 16, 24, 32, 64])
@@ -61,7 +73,7 @@ hdd = st.selectbox('**Hard Drive (HDD in GB)**', [0, 128, 256, 512, 1024, 2048])
 weight = st.number_input('**Weight (in Kg)**', min_value=0.0, step=0.1)
 ips = st.selectbox('**IPS Display**', ['No', 'Yes'])
 ssd = st.selectbox('**Solid State Drive (SSD in GB)**', [0, 8, 128, 256, 512, 1024])
-screen_size = st.slider('**Screen Size (in inches)**', 10.0, 18.0, 13.0)
+screen_size = st.slider('**Screen Size (in inches)**', 10.0, 18.0, 13.0, key='slider_screen_size')
 resolution = st.selectbox('**Screen Resolution**', [
     '1920x1080', '1366x768', '1600x900', '3840x2160', 
     '3200x1800', '2880x1800', '2560x1600', '2560x1440', '2304x1440'
@@ -71,8 +83,8 @@ gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
 # Centered Predict Button
-st.markdown("<div class='button-container'>", unsafe_allow_html=True)
-if st.button('🔮 Predict Price'):
+st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+if st.button('Predict Price', key='predict_button'):
     touchscreen = 1 if touchscreen == 'Yes' else 0
     ips = 1 if ips == 'Yes' else 0
     X_res, Y_res = map(int, resolution.split('x'))
@@ -82,7 +94,7 @@ if st.button('🔮 Predict Price'):
     price_inr = f"₹{predicted_price:,.2f}"
     st.markdown(
         f"""
-        <div style="background-color: #ffcc00; padding: 10px; border-radius: 8px; text-align: center; font-size: 24px; font-weight: bold;">
+        <div style="background-color: #fffd37; padding: 9px; border-radius: 8px; text-align: center; font-size: 24px; font-weight: bold;">
             🏷️ Estimated Laptop Price: <span style="color: #d80000;">{price_inr}</span>
         </div>
         """,
