@@ -11,7 +11,7 @@ pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
 # Set page config
-st.set_page_config(page_title="Laptop Price Predictor - SmartTech Co.", layout="centered")
+st.set_page_config(page_title="Laptop Price Predictor ", layout="wide")
 
 # Use your GitHub-hosted background image
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
@@ -22,13 +22,13 @@ st.markdown(
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 70%;
+            background-size: 75%;
         }}
         h1 {{
             text-align: left;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: bold;
-            color: white;
+            color:#fffd37;
         }}
         .stButton {{
             display: flex;
@@ -55,12 +55,12 @@ st.markdown(
         /* Adjust input fields width */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
             width: 50% !important;
-            margin: auto;
+            margin: left;
         }}
         /* Adjust slider styling */
         .stSlider {{
             width: 50% !important;
-            margin: auto;
+            margin: left;
         }}
     </style>
     """,
@@ -68,7 +68,7 @@ st.markdown(
 )
 
 # Centered title
-st.markdown("""<h1>💻 Laptop Price Predictor - SmartTech Co.</h1>""", unsafe_allow_html=True)
+st.markdown("""<h1>💻 Laptop Price Predictor </h1>""", unsafe_allow_html=True)
 
 # Stepwise Input Fields
 company = st.selectbox('**Brand**', df['Company'].unique())
