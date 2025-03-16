@@ -22,7 +22,7 @@ st.markdown(
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: cover;
+            background-size: 70%;
         }}
         h1 {{
             text-align: center;
@@ -30,21 +30,28 @@ st.markdown(
             font-weight: bold;
             color: white;
         }}
-        .button {{
-            background-color: #FFFD37;
-            color: black;
-            padding: 12px 24px;
-            font-size: 16px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+        .custom-button {{
+            background-color: #FFFD37 !important;
+            color: black !important;
+            padding: 12px 24px !important;
+            font-size: 16px !important;
+            border: none !important;
+            border-radius: 30px !important;
+            cursor: pointer !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+            transition: all 0.3s ease !important;
+            width: 100% !important; /* Adjust width */
+            height: 50px !important; /* Adjust height */
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
         }}
-        .button:hover {{
-            background-color: #9DFF00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        .custom-button:hover {{
+            background-color: #9DFF00 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3) !important;
+        
         }}
         /* Adjust input fields width */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"] {{
@@ -53,7 +60,7 @@ st.markdown(
         }}
         /* Adjust slider styling */
         .stSlider {{
-            width: 70% !important;
+            width: 50% !important;
             margin: auto;
         }}
     </style>
