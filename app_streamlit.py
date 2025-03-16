@@ -29,17 +29,19 @@ st.markdown(
             padding-right: 15% !important;
         }}
         
-/* Heading */
+         /* Heading */
 h1 {{
     text-align: left;
-    font-size: 32px !important; /* Increased font size */
+    font-size: 36px !important; /* Increased font size */
     font-weight: bold;
     background-color: #fffd37 !important; /* Sunshine Yellow */
     width: 45% !important; /* Adjusted width to align with padding */
     color: #1900ff !important; /* Royal Blue */
-    padding: 10px 15px; /* Add space inside */
+    padding: 8px 12px; /* Add space inside */
     border-radius: 8px; /* Smooth rounded corners */
     margin-left: 5%; /* Adjust left margin for better alignment */
+    margin-bottom: 30px; /* Adjust space between heading and first label */
+
 }}
 
 
@@ -51,7 +53,7 @@ h1 {{
            div[data-testid="stSlider"] label {{
            color: #4169E1 !important;  /* Royal Blue */
            font-weight: bold;
-           font-size: 20px;
+           font-size: 30px;
         }}
 
         
