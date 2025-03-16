@@ -26,13 +26,13 @@ st.markdown(
         }}
         /* Adjust main container slightly left */
         .block-container {{
-            padding-left: 16% !important; /* Slight left shift */
-            padding-right: 16% !important;
+            padding-left: 20% !important; /* Slight left shift */
+            padding-right: 20% !important;
         }}
         /* Royal Blue Heading */
         h1 {{
             text-align: left;
-            font-size: 29px;
+            font-size: 25px;
             font-weight: bold;
             color: #1900ff !important;  /* Royal Blue */
         }}
@@ -52,7 +52,7 @@ st.markdown(
             padding: 10px 20px;
             font-size: 16px;
             font-weight: bold;
-            margin-top: 20px !important;
+            margin-top: 40px !important;
             border: none;
             width: 200px; /* Balanced width */
             transition: all 0.3s ease-in-out;
