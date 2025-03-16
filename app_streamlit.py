@@ -26,19 +26,19 @@ st.markdown(
         }}
         /* Adjust main container slightly left */
         .block-container {{
-            padding-left: 12% !important; /* Slight left shift */
-            padding-right: 12% !important;
+            padding-left: 16% !important; /* Slight left shift */
+            padding-right: 16% !important;
         }}
-        /* Darker Yellow Heading */
+        /* Royal Blue Heading */
         h1 {{
             text-align: left;
-            font-size: 32px;
+            font-size: 29px;
             font-weight: bold;
-            color: #FFC300 !important;  /* Darker Sunshine Yellow */
+            color: #1900ff !important;  /* Royal Blue */
         }}
         /* Increase Textbox Width */
         div[data-testid="stSelectbox"], div[data-testid="stNumberInput"], div[data-testid="stSlider"] {{
-            width: 50% !important;  /* Full width */
+            width: 40% !important;  /* Full width */
         }}
         /* Center Predict Button */
         .stButton {{
@@ -46,12 +46,13 @@ st.markdown(
             justify-content: center;
         }}
         .stButton > button {{
-            background-color: black !important;
+            background-color: #1900ff !important;
             color: white !important;
             border-radius: 8px;
             padding: 10px 20px;
             font-size: 16px;
             font-weight: bold;
+            margin-top: 20px !important;
             border: none;
             width: 200px; /* Balanced width */
             transition: all 0.3s ease-in-out;
@@ -64,7 +65,7 @@ st.markdown(
         }}
         /* Price Display Box - Compact */
         .price-box {{
-            background-color: #FFC300; /* Darker yellow */
+            background-color: #fffd37; /* sunshite yellow */
             padding: 10px;
             border-radius: 8px; 
             text-align: center; 
