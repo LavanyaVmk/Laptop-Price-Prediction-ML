@@ -34,6 +34,7 @@ st.markdown(
             font-size: 18px;
             font-weight: bold;
             background-color: #fffd37 !important;
+            width: 45% !important;
             color: #1900ff !important; /* Royal Blue */
         }}
         /* Increase font size for labels */
