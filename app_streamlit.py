@@ -32,12 +32,12 @@ st.markdown(
          /* Heading */
 h1 {{
     text-align: left;
-    font-size: 40px !important; /* Increased font size */
+    font-size: 42px !important; /* Increased font size */
     font-weight: bold;
     background-color: #fffd37 !important; /* Sunshine Yellow */
     width: 45% !important; /* Adjusted width to align with padding */
     color: #1900ff !important; /* Royal Blue */
-    padding: 8px 10px; /* Add space inside */
+    padding: 5px 5px; /* Add space inside */
     border-radius: 5px; /* Smooth rounded corners */
     margin-left: 5%; /* Adjust left margin for better alignment */
     margin-bottom: 30px; /* Adjust space between heading and first label */
