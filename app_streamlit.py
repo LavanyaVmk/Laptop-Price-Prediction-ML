@@ -35,7 +35,7 @@ h1 {{
     font-size: 32px !important; /* Increased font size */
     font-weight: bold;
     background-color: #fffd37 !important; /* Sunshine Yellow */
-    width: 70% !important; /* Adjusted width to align with padding */
+    width: 45% !important; /* Adjusted width to align with padding */
     color: #1900ff !important; /* Royal Blue */
     padding: 10px 15px; /* Add space inside */
     border-radius: 8px; /* Smooth rounded corners */
