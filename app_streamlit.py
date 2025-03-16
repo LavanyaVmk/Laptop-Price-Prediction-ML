@@ -31,10 +31,10 @@ st.markdown(
         /*  Heading */
         h1 {{
             text-align: left;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
             background-color: #fffd37 !important;
-            width: 45% !important;
+            width: 48% !important;
             color: #1900ff !important; /* Royal Blue */
         }}
         /* Increase font size for labels */
