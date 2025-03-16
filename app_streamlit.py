@@ -32,12 +32,12 @@ st.markdown(
          /* Heading */
 h1 {{
     text-align: left;
-    font-size: 36px !important; /* Increased font size */
+    font-size: 40px !important; /* Increased font size */
     font-weight: bold;
     background-color: #fffd37 !important; /* Sunshine Yellow */
     width: 45% !important; /* Adjusted width to align with padding */
     color: #1900ff !important; /* Royal Blue */
-    padding: 8px 12px; /* Add space inside */
+    padding: 8px 10px; /* Add space inside */
     border-radius: 8px; /* Smooth rounded corners */
     margin-left: 5%; /* Adjust left margin for better alignment */
     margin-bottom: 30px; /* Adjust space between heading and first label */
@@ -70,7 +70,7 @@ h1 {{
         }}
         .stButton > button {{
             background-color: #4169E1 !important;
-            color: white !important;
+            color: #fffd37 !important;
             border-radius: 8px;
             padding: 10px 20px;
             font-size: 20px;
@@ -89,7 +89,7 @@ h1 {{
         /* Price Display Box */
         .price-box {{
             background-color: #fffd37;
-            padding: 10px;
+            padding: 20px;
             border-radius: 8px; 
             text-align: center; 
             font-size: 22px; 
