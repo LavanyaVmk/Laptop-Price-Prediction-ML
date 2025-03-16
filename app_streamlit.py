@@ -80,7 +80,7 @@ st.markdown(
 )
 
 # Left-aligned title with Darker Yellow color
-st.markdown("""<h1>💻 Laptop Price Predictor </h1>""", unsafe_allow_html=True)
+st.markdown("""<h1> Laptop Price Predictor </h1>""", unsafe_allow_html=True)
 
 # Input Fields
 company = st.selectbox('**Brand**', df['Company'].unique())
